@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Holamundo3</string>
+    <string name="app2_name">Holamundo3pantalla2</string>
+    <string name="saludo">Hola caracola</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="lblfinal">...................</string>
+    <string name="action_settings">Settings</string>
+    <string name="escribe">Escribe tu nombre</string>
+    <string name="pulsar">Pulsa aqui</string>
+    <string name="noNameMsg">Estoy en pantalla 1</string>
+    <string name="noNameMsg2">Estoy en pantalla 2</string>
+
+</resources>

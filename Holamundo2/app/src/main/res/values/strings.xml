@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Holamundo2</string>
+    <string name="app2_name">Holamundo2pantalla2</string>
+    <string name="saludo">Hola caracola</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="escribe">Escribe tu nombre</string>
+    <string name="pulsar">Pulsa aqui</string>
+</resources>
