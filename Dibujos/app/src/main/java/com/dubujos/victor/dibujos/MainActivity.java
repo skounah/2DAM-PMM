@@ -15,8 +15,8 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(new EjemploView(this));
-        setContentView(R.layout.activity_main);
+        setContentView(new EjemploView(this));
+        //setContentView(R.layout.activity_main);
     }
 
     public class EjemploView extends View {
