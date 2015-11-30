@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -197,9 +199,71 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+
     //METODO PARA TOSTADAS
     protected void showToast(String text) {
         Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
         toast.show(); }
 
+
+    //METODO CREACION MENU
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+
+    //METODO SELECCION DEL MENU
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+       /* PROGRAMACIÓN DE BAJO NIVEL
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            showToast("PULSADO SETTINGS");
+            return true;}
+        if (id == R.id.action_acercade) {
+            showToast("PULSADO ACERCA DE");
+            return true;}
+        if (id == R.id.action_submenu) {
+            showToast("PULSADO SUBMENU");
+
+            return true;}
+        if (id == R.id.action_close) {
+            showToast("PULSADO CLOSE");
+            this.finish();
+            return true;}
+        return super.onOptionsItemSelected(item);
+        */
+
+          switch (item.getItemId()){
+            case R.id.action_settings:
+                showToast("PULSADO SETTINGS");
+                return true;
+
+            case R.id.action_acercade:
+                showToast("PULSADO ACERCA DE");
+                return true;
+
+            case R.id.action_submenu:
+                showToast("PULSADO SUBMENU");
+                return true;
+                case R.id.SubMnuOpc1:
+                    showToast("PULSADO SUBMENU OPCION 1");
+                    return true;
+                case R.id.SubMnuOpc2:
+                    showToast("PULSADO SUBMENU OPCION 2");
+                    return true;
+                case R.id.SubMnuOpc3:
+                    showToast("PULSADO SUBMENU OPCION 3");
+
+            case R.id.action_close:
+                showToast("PULSADO CERRAR");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
