@@ -22,9 +22,9 @@ public class PantallaDetalles extends ActionBarActivity {
         preciobebida.setText(String.valueOf(bundlerecoje.getDouble("PRECIOBEBIDA")));
 
         final TextView envio = (TextView) findViewById(R.id.vasoselect);
-        envio.setText(bundlerecoje.getString("ENVIO"));
+        envio.setText(bundlerecoje.getString("VASO"));
         final TextView precioenvio = (TextView) findViewById(R.id.preciovasoselect);
-        precioenvio.setText(String.valueOf(bundlerecoje.getDouble("PRECIOENVIO")));
+        precioenvio.setText(String.valueOf(bundlerecoje.getDouble("PRECIOVASO")));
 
         final TextView extras = (TextView) findViewById(R.id.extraselect);
         extras.setText(bundlerecoje.getString("EXTRAS"));
