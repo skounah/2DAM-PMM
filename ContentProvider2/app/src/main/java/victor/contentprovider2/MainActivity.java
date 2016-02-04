@@ -33,7 +33,6 @@ public class MainActivity extends Activity {
         btnLlamadas = (Button)findViewById(R.id.BtnLlamadas);
 
         btnConsultar.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View arg0) {
                 //Columnas de la tabla a recuperar
