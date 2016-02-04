@@ -1,12 +1,13 @@
 package pruebaexamen1com.victor.pruebaexamen1;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -144,7 +145,13 @@ public class MainActivity extends ActionBarActivity {
                 showToast("Total:" +total);
             }//ONCLICK
         });//ONCLICKLISTENER
+
+        //MENU CONETEXTUAL
+        Button botonmenu = (Button) findViewById(R.id.botonmenu);
+        registerForContextMenu(botonmenu);
+
     }//ONCREATE
+
 
     //SELECCION DE EXTRAS (CHECKBOX)
     public String getExtraClick(View v){
@@ -168,6 +175,7 @@ public class MainActivity extends ActionBarActivity {
         }
         return extraselect;
     }
+
 
     //ADAPTADOR PARA LA CLASE BEBIDAS
     class AdaptadorBebidas extends ArrayAdapter<Bebidas> {
@@ -193,8 +201,7 @@ public class MainActivity extends ActionBarActivity {
 
             lblNombre.setText(bebidas[position].getNombre());
             lblPrecio.setText(String.valueOf(bebidas[position].getPrecio()));
-            lblImagen.setBackground(getDrawable(bebidas[position].getImagen())); //EL ERROR ES POR QUE ANTES DE UNA VERSION DE LOLIPORP SE HACICA DE OTRA FORMA PE
-
+            lblImagen.setBackground(getDrawable(bebidas[position].getImagen())); //EL ERROR ES POR QUE ANTES DE UNA VERSION DE LOLIPOP SE HACICA DE OTRA FORMA //setImageResource
             return item;
         }
     }
@@ -238,18 +245,16 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
         */
 
-          switch (item.getItemId()){
+          switch (item.getItemId()){        //NO TIENE USO
             case R.id.action_settings:
                 showToast("PULSADO SETTINGS");
+
                 return true;
 
-            case R.id.action_acercade:
-                showToast("PULSADO ACERCA DE");
-                return true;
-
-            case R.id.action_submenu:
+            case R.id.action_submenu:       //NO TIENE USO
                 showToast("PULSADO SUBMENU");
                 return true;
+
                 case R.id.SubMnuOpc1:
                     showToast("PULSADO SUBMENU OPCION 1");
                     return true;
@@ -259,11 +264,41 @@ public class MainActivity extends ActionBarActivity {
                 case R.id.SubMnuOpc3:
                     showToast("PULSADO SUBMENU OPCION 3");
 
-            case R.id.action_close:
-                showToast("PULSADO CERRAR");
+            case R.id.action_close:     //CIERRA LA APLICACION
+                showToast("CERRANDO APLICACION...");
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
+    // METODO DE CREACION DEL MENU CONTEXTUAL
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo)
+    {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_contextual, menu);
+    }
+
+
+    //METODO SELECCION MENU CONTEXTUAL
+    public boolean onContextItemSelected(MenuItem itemMnuContex) {  // HAY QUE MANTENER PULSADO PARA QUE DE DESLPEGUE NO VALE CON UN SOLO CLICK
+        switch (itemMnuContex.getItemId()) {
+            case R.id.Opc1:
+                showToast(" Opcion 1 pulsada!");
+                Intent miIntent2 = new Intent(MainActivity.this, AcercaDe.class);
+                startActivity(miIntent2);
+                //closeContextMenu();
+                return true;
+            case R.id.Opc2:
+                //QUIERO QUE REINICIE LAS SELECCIONES
+                showToast(" Opcion 2 pulsada!");
+                return true;
+            default:
+                return super.onContextItemSelected(itemMnuContex);
+        }
+    }
 }
+

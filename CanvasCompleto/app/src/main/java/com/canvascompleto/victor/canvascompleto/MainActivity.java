@@ -14,6 +14,7 @@ import android.graphics.drawable.shapes.OvalShape;
 import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.View;
 
 
@@ -25,16 +26,34 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new EjemploView(this));//PONE LA CLASE EJEMPLOVIEW COMO "PANTALLA"
+        //setContentView(new EjemploView(this));//PONE LA CLASE EJEMPLOVIEW COMO "PANTALLA"
+        setContentView(R.layout.main_activity);
+
     }//DEL ONCRATE
 
-    public class EjemploView extends View { // CLASE QUE EXTIENDE DE VIEW
+    public static class EjemploView extends View { // CLASE QUE EXTIENDE DE VIEW
 
         private ShapeDrawable miDrawable; // SUBCLASE PARA DIBUJAR GRAFICOS (OVALO)
         private BitmapDrawable miImagen; // SUBCLASE PARA DIBUJAR MAPAS DE BITS (ICONO)
-        //private GradientDrawable miGradiente; SUBLASE PARAPNER EL FONDO CON GRADIENTE
+        //private GradientDrawable miGradiente; SUBCLASE PARAPNER EL FONDO CON GRADIENTE
 
-        //CONSTRUCTOR
+        public EjemploView(Context context, AttributeSet attrs) {
+            super(context, attrs);
+            Resources res = context.getResources();
+            setBackgroundResource(R.drawable.degradado);// FONDO CON ARCHIVO XML
+
+            //LOGO RIOT GAMES
+            miImagen = (BitmapDrawable) res.getDrawable(R.drawable.logoriot);
+            miImagen.setBounds(new Rect(30,90,200,260)); //CORDENADAS (X1,Y1,X2,Y2)
+
+            //OVALO
+            miDrawable = new ShapeDrawable(new OvalShape()); //DIBUJA GRAFICO DE TIPO OVALO
+            miDrawable.getPaint().setColor(Color.rgb(255, 146, 1));
+            miDrawable.setBounds(30, 430, 330, 580);  //CORDENADAS (X1,Y1,AMPLIACION X, AMPLIACION Y)
+
+        }//CONSTRUCTOR
+
+
         public EjemploView(Context contexto) {
             super(contexto);
             Resources res = contexto.getResources();
@@ -53,7 +72,8 @@ public class MainActivity extends ActionBarActivity {
             int[] c1 = {Color.BLACK,Color.WHITE};
             miGradiente.setColors(c1);*/
 
-        } //DEL CONTRUCTOR
+        }//DEL CONTRUCTOR
+
 
         @Override
         //METODO PARA DIBUJAR (DE LA  CLASE EJEMPLO VIEW)Dentro de este método utilizamos los distintos métodos para dibujar

@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.AttributeSet;
 import android.view.View;
 
 
@@ -15,16 +16,21 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new EjemploView(this));
-        //setContentView(R.layout.activity_main);
+        //setContentView(new EjemploView(this));
+        setContentView(R.layout.activity_main);
     }
 
-    public class EjemploView extends View {
-        public EjemploView(Context contexto) {
-            super(contexto);
-        }
-        @Override
+    public static class EjemploView extends View {
 
+        public EjemploView(Context context, AttributeSet attrs) {
+            super(context, attrs);
+        }
+
+        /*public EjemploView(Context contexto) {
+            super(contexto);
+        }*/
+
+        @Override
         //METODO DE DIBUJAR
         protected void onDraw(Canvas canvas) {
             //DATOS DEL PINCEL1
