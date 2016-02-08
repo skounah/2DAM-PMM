@@ -2,6 +2,7 @@ package victor.proyectofinal;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -49,6 +50,14 @@ public class HacerPedido extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hacerpedido);
+
+        //OBTENCION BD
+        BDSQLiteHelper BDFinal = new BDSQLiteHelper(this, "BASEDATOS1", null, 1);
+        final SQLiteDatabase bd = BDFinal.getWritableDatabase();
+
+        Bundle bundlerecojeusuario2 = getIntent().getExtras();
+        final String pasaususario2=(bundlerecojeusuario2.getString("IDUSUARIO2"));
+
         preciobebida = 0.0;
         preciovaso = 0.0;
         precioextras = 0.0;
@@ -135,13 +144,16 @@ public class HacerPedido extends Activity {
                 miBundle.putInt("IMAGEN", imagen);
                 miBundle.putDouble("TOTAL", total);
 
+                //CAMBIAR COLUMNA DE TABLA USUARIOS APARATIVO POR EXTRA
+                bd.execSQL("INSERT INTO pedidos (idusuario, bebida, vaso, aperativo, total, imagen) " +
+                        "VALUES ('" + pasaususario2 + "', '" + bebida + "', '" + vaso + "', '" + extras + "', '" + total + "', '" + imagen + "')");
+                        //HACER BUNDLE DEL LOGEO DEL USUARIO EN EL FORMULARIO DE LOGEO*/
                 miIntent.putExtras(miBundle);
                 startActivity(miIntent);
 
                 showToast("Total:" +total);
             }//ONCLICK
         });//ONCLICKLISTENER
-
 
     }//ONCREATE
 
@@ -151,15 +163,15 @@ public class HacerPedido extends Activity {
         precioextras=0.0;
 
         if(check1.isChecked()){
-            extraselect+=check1.getText()+" ";
+            extraselect+=check1.getText()+"";
             precioextras +=0.5;
         }
         if(check2.isChecked()){
-            extraselect+=check2.getText()+" ";
+            extraselect+=check2.getText()+"";
             precioextras +=1.0;
         }
         if(check3.isChecked()){
-            extraselect+=check3.getText()+" ";
+            extraselect+=check3.getText()+"";
             precioextras +=0.2;
         }
         if(extraselect.length()==0){

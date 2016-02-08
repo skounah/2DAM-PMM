@@ -30,7 +30,7 @@ public class Registro extends Activity {
         Button botonregistrar = (Button) findViewById(R.id.registrar);
         botonregistrar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                //VARIABLES PARA EL INSERT
                 String nuevousuario = ""+usuario.getText();
                 String nuevomail= ""+email.getText();
                 String nuevonombre = ""+nombre.getText();
@@ -38,17 +38,10 @@ public class Registro extends Activity {
                 String nuevopass =""+pass.getText();
                 String datos= ""+nuevousuario+"-"+nuevopass;
 
-                //HAY QUE ARREGLAR LA TABLA QUE NO TIENE ESTOS DATOS POR UQE AL CREARLA LO CREE CON OTROS CAMPOS
-                /*ContentValues contentValues = new ContentValues();
-                contentValues.put("usuario" , nuevousuario);
-                contentValues.put("clave"   , nuevopass);
-                bd.insert("usuarios", null, contentValues);*/
-
                 bd.execSQL("INSERT INTO usuarios (usuario, pass, nombre, apellidos, email) " +
                         "VALUES ('" + nuevousuario + "', '" + nuevopass + "', '" + nuevonombre + "', '" + nuevoapellido + "', '" + nuevomail + "')");
 
-                showToast(datos);
-
+                //showToast(datos);
                 Intent miIntentregistro = new Intent(Registro.this, Logeo.class);
                 startActivity(miIntentregistro);
             }//ONCLICK

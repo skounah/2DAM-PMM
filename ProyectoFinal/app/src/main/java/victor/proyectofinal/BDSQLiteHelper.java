@@ -14,13 +14,13 @@ public class BDSQLiteHelper extends SQLiteOpenHelper {
             "  );";
 
     String tablaPedidos = "CREATE TABLE IF NOT EXISTS 'pedidos' (" +
-            "  'numeroPedido' INTEGER NOT NULL PRIMARY KEY," +
+            "  'numeroPedido' INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
             "  'idUsuario' TEXT NOT NULL," +
             "  'bebida' TEXT NOT NULL," +
             "  'vaso' TEXT NOT NULL," +
             "  'aperativo' TEXT NOT NULL," +
             //"  'unidades' INTEGER NOT NULL," +
-            "  'total' INTEGER NOT NULL," +
+            "  'total' DECIMAL NOT NULL," +
             "  'imagen' INTEGER NOT NULL," +
             "   FOREIGN KEY('idUsuario') REFERENCES usuarios('usuario') ON DELETE CASCADE" +
             "  );";

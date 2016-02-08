@@ -18,10 +18,16 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Bundle bundlerecojeusuario1 = getIntent().getExtras();
+        final String pasaususario=(bundlerecojeusuario1.getString("IDUSUARIO"));
+
         Button boton1 = (Button) findViewById(R.id.hacerpedido);
         boton1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent miIntent1 = new Intent(MainActivity.this, HacerPedido.class);
+                Bundle miBundleusuario2 = new Bundle();
+                miBundleusuario2.putString("IDUSUARIO2", pasaususario);
+                miIntent1.putExtras(miBundleusuario2);
                 startActivity(miIntent1);
             }//ONCLICK
         });//ONCLICKLISTENER
@@ -30,10 +36,12 @@ public class MainActivity extends Activity {
         boton2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent miIntent2 = new Intent(MainActivity.this, HacerPedido.class);
+                Bundle miBundleusuario = new Bundle();
+                miBundleusuario.putString("IDUSUARIO2", pasaususario);
                 startActivity(miIntent2);
             }//ONCLICK
-        });//ONCLICKLISTENER
-        */
+        });//ONCLICKLISTENER*/
+
         //MENU CONETEXTUAL
         Button botonmenu = (Button) findViewById(R.id.acercade);
         registerForContextMenu(botonmenu);
