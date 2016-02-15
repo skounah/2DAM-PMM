@@ -34,12 +34,10 @@ public class Logeo extends Activity{
         Cursor c2 = bd.query("usuarios", campos, null, null, null, null, null);
         final Usuario[] allusers=new Usuario[c2.getCount()];
         int i=0;
-        //Nos aseguramos de que exista al menos un registro
+
         if (c2.moveToFirst()) {
-            //Recorremos el cursor hasta que no haya más registros
             do {
-                //Toast.makeText(this, "SI HAY COINCIDENCIA", Toast.LENGTH_LONG).show(); POSIBILIDAD PARA LA VALIDACION DE LOGEO
-                String nombreusuario = c2.getString(0);//OTRA POSIBILIDAD =getColumindex(columna)
+                String nombreusuario = c2.getString(0);
                 String pass = c2.getString(1);
 
                 String datosUsu= "SELECT:" +nombreusuario+ "-" +pass;
@@ -48,8 +46,7 @@ public class Logeo extends Activity{
                 allusers[i]=new Usuario(nombreusuario,pass);// CREO LOS CLIENTES CON LO QUE LEO DE LA BD
                 i++;
             } while (c2.moveToNext());
-        }else { //POSIBILIDAD PARA VALIDACION LOGEO
-            Toast.makeText(this, "NO HAY COUNCIDENCIA", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "NO HAY COUNCIDENCIA", Toast.LENGTH_LONG).show();
         }
 
         Button botonlog = (Button) findViewById(R.id.botonentrar);
@@ -60,7 +57,7 @@ public class Logeo extends Activity{
                 String nuevopasslog = passusulogeo.getText().toString();
 
                 for(int i=0;i<allusers.length;i++){
-                    if((allusers[i].getUsuario().equals(nuevousuariolog)) && (allusers[i].getPass().equals(nuevopasslog))){
+                    if((allusers[i].getUsuario().equals(nuevousuariolog)) && (allusers[i].getPass().equals(nuevopasslog))) {
                         //BUNDLE DE NUEVOUSUARIOLOG
                         Bundle miBundleusuario = new Bundle();
                         miBundleusuario.putString("IDUSUARIO", nuevousuariolog);
@@ -68,7 +65,7 @@ public class Logeo extends Activity{
                         miIntent1.putExtras(miBundleusuario);
                         startActivity(miIntent1);
                     }else{
-                        errorLogeo.setText("ERROR AL INTRODUCIR USUARIO O CONTRASEÑA");
+                        errorLogeo.setText("USUARIO O PASS INCORRECTOS");
                     }
                 }
             }//ONCLICK

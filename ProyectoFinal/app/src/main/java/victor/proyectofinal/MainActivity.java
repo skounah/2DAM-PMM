@@ -32,15 +32,16 @@ public class MainActivity extends Activity {
             }//ONCLICK
         });//ONCLICKLISTENER
 
-        /*Button boton2 = (Button) findViewById(R.id.hacerpedido);
+        Button boton2 = (Button) findViewById(R.id.consultarpedidos);
         boton2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent miIntent2 = new Intent(MainActivity.this, HacerPedido.class);
-                Bundle miBundleusuario = new Bundle();
-                miBundleusuario.putString("IDUSUARIO2", pasaususario);
+                Intent miIntent2 = new Intent(MainActivity.this, ListaPedidos.class);
+                Bundle miBundleusuario3 = new Bundle();
+                miBundleusuario3.putString("IDUSUARIO3", pasaususario);
+                miIntent2.putExtras(miBundleusuario3);
                 startActivity(miIntent2);
             }//ONCLICK
-        });//ONCLICKLISTENER*/
+        });//ONCLICKLISTENER
 
         //MENU CONETEXTUAL
         Button botonmenu = (Button) findViewById(R.id.acercade);
@@ -78,12 +79,15 @@ public class MainActivity extends Activity {
         switch (itemMnuContex.getItemId()) {
             case R.id.Opc1:
                 //showToast(" Opcion 1 pulsada!");
-                Intent miIntent2 = new Intent(this, AcercaDe.class);
+                Intent miIntent2 = new Intent(MainActivity.this, AcercaDe.class);
                 startActivity(miIntent2);
                 //closeContextMenu();
                 return true;
             case R.id.Opc2:
-                finish();
+                //finish();
+                //showToast(" Opcion 1 pulsada!");
+                Intent miIntent3 = new Intent(MainActivity.this, Logeo.class);
+                startActivity(miIntent3);
                 return true;
             default:
                 return super.onContextItemSelected(itemMnuContex);

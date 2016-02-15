@@ -3,6 +3,6 @@
     <item android:id="@+id/Opc1"
         android:title="Acerca de nosotros: "></item>
     <item android:id="@+id/Opc2"
-        android:title="Cerrar Aplicacion"></item>
+        android:title="Cerrar Sesion"></item>
 
 </menu>

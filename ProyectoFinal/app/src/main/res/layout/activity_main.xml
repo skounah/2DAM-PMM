@@ -7,7 +7,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#fff48736">
 
     <TextView
         android:text="MENU PRINCIPAL"
@@ -16,7 +17,10 @@
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textStyle="bold"
+        android:textSize="24dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -24,25 +28,41 @@
         android:text="REALIZAR PEPDIDO"
         android:id="@+id/hacerpedido"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp" />
+        android:layout_marginTop="25dp"
+        android:background="#fffff676"
+        android:layout_alignEnd="@+id/consultarpedidos"
+        android:layout_alignStart="@+id/consultarpedidos"
+        android:textStyle="bold" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CONSULTAR PEDIDO"
-        android:id="@+id/consultarpedido"
+        android:text="CONSULTAR PEDIDOS"
+        android:id="@+id/consultarpedidos"
         android:layout_below="@+id/hacerpedido"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:background="#fffff676"
+        android:textStyle="bold" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ACERCA DE"
+        android:text="MAS OPCIONES"
         android:id="@+id/acercade"
-        android:layout_below="@+id/consultarpedido"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
+        android:layout_below="@+id/consultarpedidos"
+        android:layout_marginTop="10dp"
+        android:background="#fffff676"
+        android:layout_alignEnd="@+id/consultarpedidos"
+        android:layout_alignStart="@+id/consultarpedidos"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/wellcome"
+        android:layout_below="@+id/acercade"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

@@ -3,12 +3,37 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
     <view
         class="victor.proyectofinal.AcercaDe$EjemploView"
         android:id="@+id/Vista"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="421dp"
+        android:layout_weight="0.14" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cocinando para vuestra felicidad desde 1994."
+        android:textAlignment="center"
+        android:textColor="#ff000000"
+        android:textSize="17dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tlf:678247910."
+        android:textAlignment="center"
+        android:textColor="#ff000000"
+        android:textSize="17dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="C/Vicente Vidal n3. Valencia"
+        android:textAlignment="center"
+        android:textColor="#ff000000"
+        android:textSize="17dp" />
+
+
 </LinearLayout>

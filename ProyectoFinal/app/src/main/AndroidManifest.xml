@@ -26,6 +26,15 @@
             android:name=".HacerPedido"
             android:label="Realizacion de Pedido" >
         </activity>
+        <activity
+            android:name=".DetallesPedido"
+            android:label="Detalles de Pedido" >
+        </activity>
+
+        <activity
+            android:name=".ListaPedidos"
+            android:label="Lista de Pedidos" >
+        </activity>
 
         <activity
             android:name=".AcercaDe"

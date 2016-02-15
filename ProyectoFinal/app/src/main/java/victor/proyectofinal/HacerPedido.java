@@ -133,7 +133,7 @@ public class HacerPedido extends Activity {
                 extras=getExtraClick(v);
                 total=preciobebida+preciovaso+precioextras;
 
-                Intent miIntent = new Intent(HacerPedido.this, MainActivity.class);
+                Intent miIntent = new Intent(HacerPedido.this, DetallesPedido.class);
                 Bundle miBundle = new Bundle();
                 miBundle.putString("BEBIDA",bebida);
                 miBundle.putDouble("PRECIOBEBIDA", preciobebida);
@@ -147,7 +147,6 @@ public class HacerPedido extends Activity {
                 //CAMBIAR COLUMNA DE TABLA USUARIOS APARATIVO POR EXTRA
                 bd.execSQL("INSERT INTO pedidos (idusuario, bebida, vaso, aperativo, total, imagen) " +
                         "VALUES ('" + pasaususario2 + "', '" + bebida + "', '" + vaso + "', '" + extras + "', '" + total + "', '" + imagen + "')");
-                        //HACER BUNDLE DEL LOGEO DEL USUARIO EN EL FORMULARIO DE LOGEO*/
                 miIntent.putExtras(miBundle);
                 startActivity(miIntent);
 

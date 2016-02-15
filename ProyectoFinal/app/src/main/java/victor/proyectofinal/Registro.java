@@ -36,14 +36,20 @@ public class Registro extends Activity {
                 String nuevonombre = ""+nombre.getText();
                 String nuevoapellido =""+apellido.getText();
                 String nuevopass =""+pass.getText();
-                String datos= ""+nuevousuario+"-"+nuevopass;
+                //String datos= ""+nuevousuario+"-"+nuevopass;
+                String error = "Todos los campos son obligatorios";
 
-                bd.execSQL("INSERT INTO usuarios (usuario, pass, nombre, apellidos, email) " +
-                        "VALUES ('" + nuevousuario + "', '" + nuevopass + "', '" + nuevonombre + "', '" + nuevoapellido + "', '" + nuevomail + "')");
+                //VALIDACION PARA NULLS
+                if ((nuevousuario.equals(""))||(nuevomail.equals(""))||(nuevonombre.equals(""))||(nuevoapellido.equals(""))||(nuevopass.equals(""))){
+                    showToast(error);
+                }else {
+                    bd.execSQL("INSERT INTO usuarios (usuario, pass, nombre, apellidos, email) " +
+                            "VALUES ('" + nuevousuario + "', '" + nuevopass + "', '" + nuevonombre + "', '" + nuevoapellido + "', '" + nuevomail + "')");
 
-                //showToast(datos);
-                Intent miIntentregistro = new Intent(Registro.this, Logeo.class);
-                startActivity(miIntentregistro);
+                    //showToast(datos);
+                    Intent miIntentregistro = new Intent(Registro.this, Logeo.class);
+                    startActivity(miIntentregistro);
+                }
             }//ONCLICK
         });//ONCLICKLISTENER
 
