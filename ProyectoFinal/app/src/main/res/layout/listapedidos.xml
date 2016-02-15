@@ -7,7 +7,8 @@
             android:id="@+id/volveralmenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Volver al Menu principal"/>
+            android:text="Volver al Menu principal"
+            android:background="#fffff676"/>
 
         <ListView
             android:layout_width="fill_parent"

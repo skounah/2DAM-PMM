@@ -55,19 +55,28 @@ public class Logeo extends Activity{
                 //VARIABLES JAVA PARA RECOJER DATOS DE LOGEO
                 String nuevousuariolog = nombreusulogeo.getText().toString();
                 String nuevopasslog = passusulogeo.getText().toString();
-
-                for(int i=0;i<allusers.length;i++){
-                    if((allusers[i].getUsuario().equals(nuevousuariolog)) && (allusers[i].getPass().equals(nuevopasslog))) {
-                        //BUNDLE DE NUEVOUSUARIOLOG
-                        Bundle miBundleusuario = new Bundle();
-                        miBundleusuario.putString("IDUSUARIO", nuevousuariolog);
-                        Intent miIntent1 = new Intent(Logeo.this, MainActivity.class);
-                        miIntent1.putExtras(miBundleusuario);
-                        startActivity(miIntent1);
-                    }else{
-                        errorLogeo.setText("USUARIO O PASS INCORRECTOS");
+                boolean pasa = false;
+                //COMPROVACION PARA VER SI EXISTE LA DUPLA USU/PASS
+                for(int i=0;i<allusers.length;i++) {
+                    if ((allusers[i].getUsuario().equals(nuevousuariolog)) && (allusers[i].getPass().equals(nuevopasslog))) {
+                        pasa = true;
+                        errorLogeo.setText("");
                     }
                 }
+                //LO HAGO EN METODOS SEPARADOS PARA EVITAR QUE MUESTRE EL MENSAJE DE ERROR AUNQUE SEA CORRECTO EL USUARIO CONTRASEÑA
+                if (pasa){
+
+                    //BUNDLE DE NUEVOUSUARIOLOG
+                    Bundle miBundleusuario = new Bundle();
+                    miBundleusuario.putString("IDUSUARIO", nuevousuariolog);
+                    Intent miIntent1 = new Intent(Logeo.this, MainActivity.class);
+                    miIntent1.putExtras(miBundleusuario);
+
+                    startActivity(miIntent1);
+                }else {
+                    errorLogeo.setText("USUARIO O PASS INCORRECTOS");
+                }
+
             }//ONCLICK
         });//ONCLICKLISTENER
 

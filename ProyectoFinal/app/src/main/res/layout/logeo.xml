@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#fffff676">
 
     <TextView
         android:layout_width="wrap_content"
@@ -10,7 +11,8 @@
         android:textSize="28dp"
         android:layout_marginBottom="30dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,14 +20,18 @@
         android:text="Usuario : "
         android:id="@+id/textonombre"
         android:textSize="24dp"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:textColor="#000000" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/usuariolog"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="50dp" />
+        android:layout_marginRight="50dp"
+        android:autoText="false"
+        android:background="#fff48736"
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,14 +39,17 @@
         android:text="Contraseña : "
         android:id="@+id/textopass"
         android:textSize="24dp"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:textColor="#000000" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/passlog"
         android:layout_marginRight="50dp"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:background="#fff48736"
+        android:textColor="#000000" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -75,5 +84,9 @@
         android:textSize="26dp"
         android:textStyle="bold"
         android:textColor="#ffff0b00" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/iconocasaskoner"/>
 
 </LinearLayout>

@@ -7,7 +7,8 @@
     android:orientation="vertical"
     android:weightSum="1"
     android:divider="?android:dividerHorizontal"
-    android:showDividers="middle">
+    android:showDividers="middle"
+    android:background="#fffff676">
 
     <TextView
         android:text="Restaurante casa Skoner"
@@ -22,7 +23,8 @@
         android:text="Escoja su bebida"
         android:textSize="24dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000000" />
 
     <Spinner
         android:id="@+id/miSpinner"
@@ -39,7 +41,7 @@
         android:layout_height="wrap_content"
         android:text="Seleccione tamaño del Vaso :"
         android:textSize="24dp"
-        />
+        android:textColor="#000000" />
 
     <RadioGroup android:id="@+id/radiovaso"
         android:layout_width="match_parent"
@@ -53,7 +55,7 @@
         <RadioButton android:id="@+id/radio2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mediano"/>
+            android:text="Mediano" />
         <RadioButton android:id="@+id/radio3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,13 +64,15 @@
         <RadioButton android:id="@+id/radio4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gigante"/>
+            android:text="Gigante" />
     </RadioGroup>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selecciones Extra :"/>
+        android:text="Selecciones Extra :"
+        android:textColor="#000000"
+        android:textSize="24dp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -100,6 +104,7 @@
         android:layout_height="wrap_content"
         android:text="Realizar Pedido"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="30dp"
+        android:background="#fff48736"/>
 
 </LinearLayout>
