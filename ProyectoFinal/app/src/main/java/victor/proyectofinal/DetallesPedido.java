@@ -17,8 +17,9 @@ public class DetallesPedido extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.verpedido);
         Bundle bundlerecoje = getIntent().getExtras();
+        final String pasausuario4 = bundlerecoje.getString("IDUSUARIO");
 
-        //ASIGNACION DE VARIABLES JAVA A XML + RECOJIDA DEL BUNDLE.
+        //ASIGNACION DE VARIABLES JAVA A XML + RECOJIDA DEL BUNDLE.(NO MUESTRA EL USUARIO AQUI)
         final TextView bebida = (TextView) findViewById(R.id.bebidaselect);
         bebida.setText(bundlerecoje.getString("BEBIDA"));
         final TextView preciobebida = (TextView) findViewById(R.id.preciobebibdaselect);
@@ -47,6 +48,7 @@ public class DetallesPedido extends Activity {
             public void onClick(View v) {
                 Intent intentVolver = new Intent(DetallesPedido.this,MainActivity.class);
                 Bundle bundleVolver = new Bundle();
+                bundleVolver.putString("IDUSUARIO",pasausuario4);
                 intentVolver.putExtras(bundleVolver);
                 setResult(RESULT_OK, intentVolver);
                 startActivity(intentVolver);

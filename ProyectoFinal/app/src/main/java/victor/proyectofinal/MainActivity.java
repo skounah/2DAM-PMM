@@ -84,10 +84,14 @@ public class MainActivity extends Activity {
                 //closeContextMenu();
                 return true;
             case R.id.Opc2:
-                //finish();
-                //showToast(" Opcion 1 pulsada!");
                 Intent miIntent3 = new Intent(MainActivity.this, Logeo.class);
                 startActivity(miIntent3);
+                //startActivityForResult(miIntent3,1);
+                return true;
+            case R.id.Opc3:
+                Intent miIntent4 = new Intent(MainActivity.this, Logeo.class);
+                startActivity(miIntent4);
+                //CODIGO PARA BORRAR USUARIO
                 return true;
             default:
                 return super.onContextItemSelected(itemMnuContex);

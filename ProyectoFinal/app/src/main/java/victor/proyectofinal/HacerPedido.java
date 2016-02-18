@@ -143,9 +143,10 @@ public class HacerPedido extends Activity {
                 miBundle.putDouble("PRECIOEXTRAS", precioextras);
                 miBundle.putInt("IMAGEN", imagen);
                 miBundle.putDouble("TOTAL", total);
+                miBundle.putString("IDUSUARIO",pasaususario2);
 
                 //CAMBIAR COLUMNA DE TABLA USUARIOS APARATIVO POR EXTRA
-                bd.execSQL("INSERT INTO pedidos (idusuario, bebida, vaso, aperativo, total, imagen) " +
+                bd.execSQL("INSERT INTO pedidos (idusuario, bebida, vaso, extras, total, imagen) " +
                         "VALUES ('" + pasaususario2 + "', '" + bebida + "', '" + vaso + "', '" + extras + "', '" + total + "', '" + imagen + "')");
                 miIntent.putExtras(miBundle);
                 startActivity(miIntent);

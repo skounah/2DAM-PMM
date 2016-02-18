@@ -18,7 +18,7 @@ public class BDSQLiteHelper extends SQLiteOpenHelper {
             "  'idUsuario' TEXT NOT NULL," +
             "  'bebida' TEXT NOT NULL," +
             "  'vaso' TEXT NOT NULL," +
-            "  'aperativo' TEXT NOT NULL," +
+            "  'extras' TEXT NOT NULL," +
             //"  'unidades' INTEGER NOT NULL," +
             "  'total' DECIMAL NOT NULL," +
             "  'imagen' INTEGER NOT NULL," +
